@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mettgenpin 1877 — Speise- & Getränkekarte</title>
+<meta name="description" content="Speise- & Getränkekarte Mettgenpin 1877 — Seit 1877 Felsenmeer & Biergarten! Hönnetalstraße 7, 58675 Hemer.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-paper: #FAF6EF;
+    --text-primary: #2B2B2B;
+    --text-secondary: #6B6358;
+    --accent-green: #5A6B4A;
+    --accent-gold: #B8975A;
+    --line-soft: #D0CCBE;
+    --accent-wine: #7A2C2C;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-paper);
+    color: var(--text-primary);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ HEADER ============ */
+  header.site-header {
+    text-align: center;
+    padding: 48px 24px 24px;
+    position: relative;
+  }
+
+  header.site-header::before,
+  header.site-header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(700px, 90%);
+    border-top: 1px solid var(--accent-gold);
+    border-bottom: 1px solid var(--accent-gold);
+    height: 4px;
+    pointer-events: none;
+  }
+  header.site-header::before { top: 28px; }
+  header.site-header::after { bottom: 12px; }
+
+  .logo-wrap { display: flex; justify-content: center; margin-bottom: 16px; }
+  .logo-wrap img { max-height: 200px; width: auto; height: auto; }
+
+  .brand-claim {
+    font-family: 'Cinzel', 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: var(--accent-green);
+    letter-spacing: 0.08em;
+    margin: 12px 0 6px;
+    text-transform: uppercase;
+  }
+
+  .brand-year {
+    font-family: 'UnifrakturMaguntia', 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin: 0 0 18px;
+    line-height: 1;
+  }
+
+  .venue-info {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .venue-info span { white-space: nowrap; }
+  .venue-info .dot { display: inline-block; margin: 0 10px; color: var(--line-soft); }
+
+  /* ============ STICKY NAV ============ */
+  nav.section-nav {
+    position: sticky; top: 0;
+    background: var(--bg-paper);
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    z-index: 40; margin: 24px 0 0;
+  }
+
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 24px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-inner ul {
+    display: flex; gap: 22px; margin: 0; padding: 14px 0;
+    list-style: none; white-space: nowrap;
+  }
+
+  .nav-inner a {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--text-secondary); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 2px; border-bottom: 2px solid transparent;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+
+  .nav-inner a:hover, .nav-inner a:focus-visible {
+    color: var(--accent-green); outline: none;
+  }
+
+  .nav-inner a.active {
+    color: var(--accent-green); border-bottom-color: var(--accent-green);
+  }
+
+  /* ============ MAIN ============ */
+  main { padding: 48px 0 80px; }
+
+  .group-title {
+    font-family: 'Cinzel', 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+    color: var(--accent-gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px 0 24px;
+  }
+
+  .group-title::before, .group-title::after {
+    content: "❦"; margin: 0 14px;
+    color: var(--accent-gold); font-size: 0.7em;
+    vertical-align: middle;
+  }
+
+  section.menu-section {
+    margin-bottom: 48px;
+    scroll-margin-top: 80px;
+  }
+
+  .section-header { text-align: center; margin-bottom: 24px; }
+
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    color: var(--accent-green);
+    margin: 0 0 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .section-tagline {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0 0 10px;
+  }
+
+  .section-header::after {
+    content: ""; display: block; width: 60px; height: 1px;
+    background: var(--line-soft); margin: 8px auto 0;
+  }
+
+  /* ============ GRID ============ */
+  .dish-grid {
+    display: grid; gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .dish-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  @media (min-width: 1024px) {
+    .dish-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  }
+
+  .dish-grid.two-col {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .dish-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ============ DISH CARD ============ */
+  article.dish {
+    background: transparent;
+    padding: 20px 22px;
+    border: 1px solid var(--line-soft);
+    cursor: pointer;
+    transition: border-color 160ms ease, background-color 160ms ease;
+    display: flex; flex-direction: column; gap: 8px;
+    text-align: left;
+  }
+
+  article.dish:hover, article.dish:focus-visible {
+    border-color: var(--accent-green);
+    background-color: rgba(90, 107, 74, 0.03);
+    outline: none;
+  }
+
+  .dish-head {
+    display: flex; align-items: baseline;
+    justify-content: space-between; gap: 16px;
+  }
+
+  .dish-name {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700; font-size: 1rem;
+    color: var(--text-primary); line-height: 1.35;
+    margin: 0;
+  }
+
+  .allergens {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400; font-size: 0.72rem;
+    color: var(--text-secondary); letter-spacing: 0.04em;
+    margin-left: 6px;
+  }
+
+  .veg-mark, .spicy-mark {
+    display: inline-block; margin-left: 6px;
+    color: var(--accent-green);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.78rem; font-weight: 600;
+  }
+
+  .spicy-mark { color: var(--accent-wine); }
+
+  .spicy-mark svg { width: 12px; height: 12px; vertical-align: -1px; }
+
+  .price {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 500; font-size: 1.1rem;
+    color: var(--text-primary);
+    white-space: nowrap; text-align: right;
+  }
+
+  .ingredients {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ============ SIMPLE LIST (Drinks) ============ */
+  .drink-list {
+    list-style: none; margin: 0; padding: 0;
+    columns: 1; column-gap: 40px;
+  }
+
+  @media (min-width: 768px) { .drink-list { columns: 2; } }
+  @media (min-width: 1024px) { .drink-list.three-col { columns: 3; } }
+
+  .drink-list li {
+    break-inside: avoid;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--line-soft);
+    display: flex; justify-content: space-between;
+    gap: 12px; align-items: baseline;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 0.95rem;
+  }
+
+  .drink-list .drink-name { color: var(--text-primary); flex: 1; }
+  .drink-list .drink-price {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-primary); font-weight: 500;
+    font-size: 1rem; white-space: nowrap;
+  }
+
+  .drink-list small {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  /* ============ EXTRAS BOX ============ */
+  .extras-box {
+    margin: 16px 0 0;
+    padding: 16px 22px;
+    background: rgba(184, 151, 90, 0.06);
+    border-left: 3px solid var(--accent-gold);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .extras-box strong {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: var(--accent-green);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .extras-box .extras-row {
+    display: flex; flex-wrap: wrap; gap: 10px 18px;
+  }
+
+  .extras-box .extras-row span {
+    white-space: nowrap;
+    color: var(--text-primary);
+  }
+
+  /* ============ AYCE BOX ============ */
+  .ayce-box {
+    margin: 48px auto;
+    max-width: 920px;
+    padding: 36px 40px 32px;
+    border: 2px solid var(--accent-wine);
+    background: linear-gradient(to bottom, rgba(122, 44, 44, 0.04), rgba(122, 44, 44, 0.01));
+    position: relative;
+  }
+
+  .ayce-box::before, .ayce-box::after {
+    content: "";
+    position: absolute;
+    left: 8px; right: 8px;
+    border-top: 1px solid var(--accent-wine);
+    height: 0;
+    opacity: 0.4;
+  }
+  .ayce-box::before { top: 8px; }
+  .ayce-box::after { bottom: 8px; }
+
+  .ayce-box .ayce-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-wine);
+    text-align: center;
+    margin: 0 0 8px;
+  }
+
+  .ayce-box h3 {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--accent-wine);
+    margin: 0 0 24px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .ayce-deals {
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 600px) {
+    .ayce-deals { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ayce-deal {
+    text-align: center;
+    padding: 16px;
+    border: 1px solid rgba(122, 44, 44, 0.3);
+    background: var(--bg-paper);
+  }
+
+  .ayce-deal-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+
+  .ayce-deal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--accent-wine);
+    margin: 4px 0;
+  }
+
+  .ayce-deal-sub {
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .ayce-box p {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin: 0 0 8px;
+    text-align: center;
+  }
+
+  .ayce-box p.ayce-cta {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(122, 44, 44, 0.2);
+    font-weight: 700;
+    color: var(--accent-wine);
+  }
+
+  /* ============ ALLERGEN LEGEND ============ */
+  .allergen-legend {
+    margin: 48px auto 0;
+    max-width: 920px;
+    border: 1px solid var(--line-soft);
+  }
+
+  .allergen-legend summary {
+    cursor: pointer; padding: 16px 24px;
+    font-family: 'Cinzel', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--accent-green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    list-style: none; user-select: none;
+  }
+
+  .allergen-legend summary::-webkit-details-marker { display: none; }
+
+  .allergen-legend summary::after {
+    content: "+"; float: right;
+    font-size: 1.2rem; line-height: 1;
+    color: var(--accent-green);
+  }
+
+  .allergen-legend[open] summary::after { content: "−"; }
+
+  .allergen-legend .legend-body {
+    padding: 0 24px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 6px 24px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+  }
+
+  .allergen-legend .legend-body span strong {
+    color: var(--text-primary); font-weight: 700;
+    margin-right: 6px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer.site-footer {
+    margin-top: 56px;
+    padding: 36px 24px 40px;
+    border-top: 2px solid var(--accent-gold);
+    text-align: center;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  footer .footer-claim {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--accent-green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  footer .footer-address {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+  }
+
+  footer .hours {
+    display: inline-block;
+    text-align: left;
+    margin: 6px 0 18px;
+    font-size: 0.9rem;
+    background: rgba(184, 151, 90, 0.06);
+    padding: 14px 24px;
+    border: 1px solid var(--line-soft);
+  }
+
+  footer .hours div { padding: 2px 0; }
+  footer .hours strong {
+    display: inline-block;
+    min-width: 90px;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  footer .summer-note {
+    font-style: italic;
+    font-size: 0.85rem;
+    margin: 8px 0 18px;
+  }
+
+  footer.site-footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-soft);
+    margin: 0 8px;
+  }
+
+  footer.site-footer a:hover { color: var(--accent-green); }
+
+  footer .legal {
+    margin-top: 12px;
+    font-size: 0.78rem;
+  }
+
+  /* ============ RESERVATION BUTTON ============ */
+  .reserve-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 50;
+    background: var(--accent-green);
+    color: #FAF6EF;
+    font-family: 'Cinzel', system-ui, sans-serif;
+    font-weight: 500; font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border: none; text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color 160ms ease, transform 160ms ease;
+    cursor: pointer;
+  }
+
+  .reserve-btn:hover {
+    background: #4A5A3D;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 767px) {
+    .reserve-btn {
+      bottom: 20px; right: 20px;
+      width: 68px; height: 68px;
+      padding: 0; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; text-align: center;
+      line-height: 1.1; letter-spacing: 0.05em;
+    }
+  }
+
+  /* ============ MODAL ============ */
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(43, 43, 43, 0.55);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 100; padding: 24px;
+    opacity: 0; transition: opacity 200ms ease;
+  }
+
+  .modal-backdrop.open { display: flex; opacity: 1; }
+
+  .modal {
+    background: var(--bg-paper);
+    max-width: 640px; width: 100%;
+    max-height: 92vh; overflow-y: auto;
+    position: relative; padding: 0;
+    border: 1px solid var(--accent-gold);
+  }
+
+  .modal-close {
+    position: absolute; top: 12px; right: 12px;
+    width: 36px; height: 36px;
+    background: rgba(250, 246, 239, 0.92);
+    border: none;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.4rem; color: var(--text-primary);
+    cursor: pointer; line-height: 1; z-index: 2;
+  }
+
+  .modal-close:hover { color: var(--accent-wine); }
+
+  .modal-image {
+    width: 100%; aspect-ratio: 4 / 3;
+    background: #E5E1D6;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem; color: var(--text-secondary);
+    letter-spacing: 0.04em;
+  }
+
+  .modal-body { padding: 28px 32px 32px; }
+
+  .modal-body h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700; font-size: 1.4rem;
+    margin: 0 0 14px; color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .modal-ingredients {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem; color: var(--text-primary);
+    line-height: 1.6; margin-bottom: 18px;
+  }
+
+  .modal-allergens {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.9rem; color: var(--text-secondary);
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    margin-bottom: 18px;
+  }
+
+  .modal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 1.8rem;
+    color: var(--text-primary); text-align: right;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    @page { size: A4; margin: 14mm; }
+
+    body { background: #fff; color: #000; font-size: 10pt; }
+
+    .reserve-btn, nav.section-nav, .modal-backdrop { display: none !important; }
+
+    .allergen-legend[open] .legend-body,
+    .allergen-legend .legend-body { display: grid !important; padding: 12px 16px; }
+    .allergen-legend summary { padding: 10px 16px; }
+    .allergen-legend summary::after { display: none !important; }
+
+    header.site-header { padding: 12px 0 8px; }
+    header.site-header::before, header.site-header::after { display: none; }
+    .logo-wrap img { max-height: 90px; }
+    .brand-claim { font-size: 12pt; margin: 6px 0 2px; }
+    .brand-year { font-size: 18pt; margin-bottom: 8px; }
+    .venue-info { font-size: 9pt; }
+
+    main { padding: 12px 0; }
+
+    .group-title { font-size: 12pt; margin: 14px 0 8px; }
+
+    section.menu-section {
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+    }
+
+    .section-header { margin-bottom: 10px; }
+    .section-header h2 { font-size: 13pt; margin: 0 0 2px; }
+    .section-tagline { font-size: 9pt; }
+
+    .dish-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 6px 14px !important;
+    }
+
+    .drink-list { columns: 2 !important; column-gap: 24px; }
+
+    article.dish {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 5px 0;
+      page-break-inside: avoid;
+    }
+
+    article.dish:hover { background: transparent; border-color: #ccc; }
+
+    .dish-name { font-size: 9.5pt; }
+    .ingredients { font-size: 8.5pt; }
+    .price { font-size: 10.5pt; }
+    .allergens { font-size: 8pt; }
+
+    .extras-box {
+      background: transparent;
+      border-left: 2px solid #B8975A;
+      padding: 8px 14px;
+      font-size: 8.5pt;
+    }
+
+    .ayce-box {
+      margin: 16px auto;
+      padding: 14px 18px;
+      border: 1.5px solid #7A2C2C;
+      page-break-inside: avoid;
+    }
+
+    .ayce-box::before, .ayce-box::after { display: none; }
+    .ayce-box h3 { font-size: 13pt; margin-bottom: 10px; }
+    .ayce-box p { font-size: 9pt; margin-bottom: 4px; }
+    .ayce-deal-price { font-size: 13pt; }
+    .ayce-deal-title { font-size: 9.5pt; }
+    .ayce-deal-sub { font-size: 8pt; }
+
+    footer.site-footer {
+      margin-top: 18px;
+      padding: 12px 0 0;
+      font-size: 8pt;
+      page-break-inside: avoid;
+    }
+
+    footer .hours { font-size: 8pt; padding: 8px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <!-- Hinweis: MP_Mettgenpin_1877_Logo.svg muss im gleichen Verzeichnis liegen -->
+      <img src="MP_Mettgenpin_1877_Logo.svg" alt="Mettgenpin 1877">
+    </div>
+    <div class="brand-claim">Seit 1877 — Felsenmeer &amp; Biergarten</div>
+    <div class="brand-year">Anno 1877</div>
+    <div class="venue-info">
+      <span>Hönnetalstraße 7, 58675 Hemer</span>
+      <span class="dot">·</span>
+      <span>Tel. 02372 5689244</span>
+      <span class="dot">·</span>
+      <span>www.mp1877.de</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STICKY NAV ============ -->
+<nav class="section-nav" aria-label="Rubriken">
+  <div class="nav-inner">
+    <ul>
+      <li><a href="#getraenke">Getränke</a></li>
+      <li><a href="#wein">Wein &amp; Spritz</a></li>
+      <li><a href="#cocktails">Cocktails</a></li>
+      <li><a href="#spirituosen">Spirituosen</a></li>
+      <li><a href="#ankommen">Zum Ankommen</a></li>
+      <li><a href="#salate">Salate</a></li>
+      <li><a href="#schnitzel">Schnitzel</a></li>
+      <li><a href="#burger">Burger</a></li>
+      <li><a href="#flammkuchen">Flammkuchen</a></li>
+      <li><a href="#specials">Lucky Specials</a></li>
+      <li><a href="#klassiker">Klassiker</a></li>
+      <li><a href="#ofenkartoffel">Ofenkartoffel</a></li>
+      <li><a href="#desserts">Desserts</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ============================================================
+       GETRÄNKE
+       ============================================================ -->
+  <h2 class="group-title">Getränke</h2>
+
+  <section class="menu-section" id="getraenke">
+    <div class="section-header"><h2>Bier &amp; Softdrinks</h2></div>
+    <ul class="drink-list" id="list-bier"></ul>
+  </section>
+
+  <section class="menu-section">
+    <div class="section-header"><h2>Kaffee &amp; Co.</h2></div>
+    <ul class="drink-list" id="list-kaffee"></ul>
+  </section>
+
+  <section class="menu-section" id="wein">
+    <div class="section-header"><h2>Wein, Sekt &amp; Spritz</h2></div>
+    <ul class="drink-list" id="list-wein"></ul>
+  </section>
+
+  <section class="menu-section">
+    <div class="section-header"><h2>Longdrinks</h2></div>
+    <ul class="drink-list" id="list-longdrinks"></ul>
+  </section>
+
+  <section class="menu-section" id="cocktails">
+    <div class="section-header"><h2>Cocktails</h2></div>
+    <ul class="drink-list" id="list-cocktails"></ul>
+  </section>
+
+  <section class="menu-section">
+    <div class="section-header">
+      <h2>Alkoholfreie Cocktails</h2>
+      <p class="section-tagline">Genuss ohne Promille</p>
+    </div>
+    <ul class="drink-list" id="list-alkfrei"></ul>
+  </section>
+
+  <section class="menu-section" id="spirituosen">
+    <div class="section-header"><h2>Spirituosen &amp; Shots</h2>
+      <p class="section-tagline">2 cl</p>
+    </div>
+    <ul class="drink-list three-col" id="list-spirituosen"></ul>
+  </section>
+
+  <!-- ============================================================
+       SPEISEN
+       ============================================================ -->
+  <h2 class="group-title">Speisen</h2>
+
+  <section class="menu-section" id="ankommen">
+    <div class="section-header">
+      <h2>Zum Ankommen</h2>
+      <p class="section-tagline">Kleine Begleiter vor dem Hauptgang</p>
+    </div>
+    <div class="dish-grid" id="grid-ankommen"></div>
+  </section>
+
+  <section class="menu-section" id="salate">
+    <div class="section-header"><h2>Salate</h2></div>
+    <div class="dish-grid" id="grid-salate"></div>
+    <div class="extras-box">
+      <strong>Salat-Extras</strong>
+      <div class="extras-row">
+        <span>Schafskäse 3,90 €</span>
+        <span>Hähnchenbrust 3,90 €</span>
+        <span>Gebratene Champignons 2,90 €</span>
+        <span>Grana Padano 2,90 €</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="schnitzel">
+    <div class="section-header"><h2>Schnitzel &amp; Bifteki</h2></div>
+    <div class="dish-grid" id="grid-schnitzel"></div>
+    <div class="extras-box">
+      <strong>Saucen extra</strong>
+      <div class="extras-row">
+        <span>Champignonsauce 2,50 €</span>
+        <span>Paprikasauce 2,50 €</span>
+        <span>Sauce Hollandaise 2,50 €</span>
+        <span>Sambal-Hollandaise 2,90 €</span>
+        <span>Sambalsauce (scharf Extra) 1,90 €</span>
+        <span>Sauerrahm 2,00 €</span>
+        <span>Tzatziki 2,00 €</span>
+        <span>Ketchup 0,80 €</span>
+        <span>Mayonnaise 0,80 €</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="burger">
+    <div class="section-header">
+      <h2>Burger</h2>
+      <p class="section-tagline">Alle Burger mit Pommes frites · Auf Wunsch scharf mit Sambalsauce +1,90 €</p>
+    </div>
+    <div class="dish-grid" id="grid-burger"></div>
+  </section>
+
+  <section class="menu-section" id="flammkuchen">
+    <div class="section-header"><h2>Flammkuchen</h2></div>
+    <div class="dish-grid" id="grid-flammkuchen"></div>
+  </section>
+
+  <!-- ============ AYCE BOX — PROMINENT ============ -->
+  <aside class="ayce-box" aria-label="All You Can Eat">
+    <div class="ayce-eyebrow">Der 1877er Freitagabend</div>
+    <h3>All You Can Eat</h3>
+    <div class="ayce-deals">
+      <div class="ayce-deal">
+        <div class="ayce-deal-title">Ribs satt</div>
+        <div class="ayce-deal-price">33,70 €</div>
+        <div class="ayce-deal-sub">Lucky Glaze Spare Ribs</div>
+      </div>
+      <div class="ayce-deal">
+        <div class="ayce-deal-title">Schnitzel satt</div>
+        <div class="ayce-deal-price">25,90 €</div>
+        <div class="ayce-deal-sub">Wiener Schnitzel</div>
+      </div>
+    </div>
+    <p>Kinder bis 12 Jahre: halbe Portion zum halben Preis.</p>
+    <p>18:00 – 22:00 Uhr · inklusive Pommes frites &amp; Coleslaw oder Beilagensalat</p>
+    <p class="ayce-cta">Die nächsten Termine erfragen Sie gerne bei unserem Service. Reservierung ist Pflicht.</p>
+  </aside>
+
+  <section class="menu-section" id="specials">
+    <div class="section-header">
+      <h2>Lucky Specials</h2>
+      <p class="section-tagline">Unsere Hausspezialitäten</p>
+    </div>
+    <div class="dish-grid" id="grid-specials"></div>
+  </section>
+
+  <section class="menu-section" id="klassiker">
+    <div class="section-header"><h2>Gutbürgerlich &amp; Klassiker</h2></div>
+    <div class="dish-grid" id="grid-klassiker"></div>
+  </section>
+
+  <section class="menu-section" id="ofenkartoffel">
+    <div class="section-header">
+      <h2>Ofenkartoffel</h2>
+      <p class="section-tagline">Baukasten — wählen Sie aktiv mit oder ohne Kräuterbutter</p>
+    </div>
+    <div class="dish-grid two-col" id="grid-ofenkartoffel"></div>
+    <div class="extras-box">
+      <strong>Toppings — beliebig kombinierbar</strong>
+      <div class="extras-row">
+        <span>Sauce Hollandaise 2,50 €</span>
+        <span>Sambal-Hollandaise 2,90 €</span>
+        <span>Käse überbacken 2,50 €</span>
+        <span>Sauerrahm 2,00 €</span>
+        <span>Tzatziki 2,00 €</span>
+        <span>Hähnchenbrust 3,90 €</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="section-header"><h2>Beilagen</h2></div>
+    <div class="dish-grid" id="grid-beilagen"></div>
+  </section>
+
+  <section class="menu-section" id="desserts">
+    <div class="section-header">
+      <h2>Süßes zum Schluss</h2>
+      <p class="section-tagline">Dubai-Pistaziencreme als Topping +1,00 € auf Brownie, Soufflé oder Lotus Cheesecake</p>
+    </div>
+    <div class="dish-grid" id="grid-desserts"></div>
+  </section>
+
+  <!-- ALLERGEN LEGEND -->
+  <details class="allergen-legend">
+    <summary>Allergene anzeigen</summary>
+    <div class="legend-body">
+      <span><strong>A</strong>Gluten</span>
+      <span><strong>B</strong>Krebstiere</span>
+      <span><strong>C</strong>Eier</span>
+      <span><strong>D</strong>Fisch</span>
+      <span><strong>E</strong>Erdnüsse</span>
+      <span><strong>F</strong>Soja</span>
+      <span><strong>G</strong>Milch (inkl. Laktose)</span>
+      <span><strong>H</strong>Schalenfrüchte</span>
+      <span><strong>L</strong>Sellerie</span>
+      <span><strong>M</strong>Senf</span>
+      <span><strong>N</strong>Sesam</span>
+      <span><strong>O</strong>Sulfite</span>
+      <span><strong>P</strong>Lupinen</span>
+      <span><strong>R</strong>Weichtiere</span>
+    </div>
+  </details>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-claim">Seit 1877 — Felsenmeer &amp; Biergarten</div>
+    <div class="footer-address">
+      Mettgenpin 1877 · Hönnetalstraße 7 · 58675 Hemer<br>
+      Tel. <a href="tel:+4923725689244">02372 5689244</a> · <a href="https://www.mp1877.de">www.mp1877.de</a>
+    </div>
+
+    <div class="hours">
+      <div><strong>Montag</strong> 17:00 – 23:00</div>
+      <div><strong>Dienstag</strong> Ruhetag</div>
+      <div><strong>Mittwoch</strong> 17:00 – 23:00</div>
+      <div><strong>Donnerstag</strong> 17:00 – 23:00</div>
+      <div><strong>Freitag</strong> 17:00 – 24:00</div>
+      <div><strong>Samstag</strong> 17:00 – 01:00</div>
+      <div><strong>Sonntag</strong> 12:00 – 23:00</div>
+    </div>
+
+    <div class="summer-note">Im Sommer veränderte Öffnungszeiten — werden separat bekanntgegeben.</div>
+
+    <div>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+    <div class="legal">Alle Preise in Euro, inkl. gesetzlicher MwSt. Stand: Mai 2026.</div>
+  </div>
+</footer>
+
+<!-- RESERVATION BUTTON -->
+<a class="reserve-btn" href="tel:+4923725689244" aria-label="Reservieren">Reservieren</a>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal">
+    <button class="modal-close" id="modal-close" aria-label="Schließen">×</button>
+    <div class="modal-image">Bild folgt</div>
+    <div class="modal-body">
+      <h3 id="modal-title"></h3>
+      <div class="modal-ingredients" id="modal-ingredients"></div>
+      <div class="modal-allergens" id="modal-allergens"></div>
+      <div class="modal-price" id="modal-price"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ALLERGEN_NAMES = {
+  A: 'Gluten', B: 'Krebstiere', C: 'Eier', D: 'Fisch',
+  E: 'Erdnüsse', F: 'Soja', G: 'Milch (inkl. Laktose)',
+  H: 'Schalenfrüchte', L: 'Sellerie', M: 'Senf',
+  N: 'Sesam', O: 'Sulfite', P: 'Lupinen', R: 'Weichtiere'
+};
+
+/* =========================================================
+   GETRÄNKE-DATEN
+   ========================================================= */
+
+const DRINKS = {
+  bier: [
+    { name: 'Krombacher Pils Hell & Dunkel', sub: '0,3 l', price: '3,30 €' },
+    { name: 'Krombacher Pils Hell & Dunkel', sub: '0,5 l', price: '5,20 €' },
+    { name: 'Krefelder / Alster / Radler', sub: '0,3 l', price: '3,50 €' },
+    { name: 'Krefelder / Alster / Radler', sub: '0,5 l', price: '5,50 €' },
+    { name: 'Starnberger Hell', sub: '0,3 l', price: '3,50 €' },
+    { name: 'Starnberger Hell', sub: '0,5 l', price: '5,50 €' },
+    { name: 'Krombacher Weizenbier', sub: 'Flasche 0,5 l', price: '5,20 €' },
+    { name: 'Krombacher 0,0 %', sub: 'Flasche 0,33 l', price: '3,50 €' },
+    { name: 'Fassbrause', sub: 'Flasche 0,33 l', price: '3,50 €' },
+    { name: 'Afri Cola / Afri ohne Zucker / Bluna Orange / Zitrone', sub: '0,3 l', price: '3,30 €' },
+    { name: 'Afri Cola / Afri ohne Zucker / Bluna Orange / Zitrone', sub: '0,5 l', price: '5,20 €' },
+    { name: 'Rhodius Wasser', sub: '0,75 l', price: '6,90 €' },
+    { name: 'Tafelwasser Karaffe', sub: '0,7 l', price: '5,90 €' },
+    { name: 'Schweppes', sub: '0,3 l', price: '3,50 €' },
+    { name: 'Vita Malz', sub: '0,33 l', price: '3,50 €' },
+    { name: 'Säfte & Nektar', sub: '0,3 l', price: '3,50 €' }
+  ],
+  kaffee: [
+    { name: 'Kaffee', sub: 'klein', price: '2,50 €' },
+    { name: 'Kaffee', sub: 'groß', price: '3,20 €' },
+    { name: 'Milchkaffee', price: '3,60 €' },
+    { name: 'Cappuccino', price: '3,60 €' },
+    { name: 'Espresso', sub: 'klein', price: '2,50 €' },
+    { name: 'Espresso', sub: 'groß', price: '3,90 €' },
+    { name: 'Latte Macchiato', price: '3,90 €' },
+    { name: 'Kakao (Milch)', price: '3,20 €' },
+    { name: 'Tee', price: '2,60 €' }
+  ],
+  wein: [
+    { name: 'Maybach Grauburgunder', sub: '0,2 l', price: '5,90 €' },
+    { name: 'Maybach Grauburgunder', sub: '0,75 l', price: '17,90 €' },
+    { name: 'Grand Sud Chardonnay', sub: '0,2 l', price: '5,50 €' },
+    { name: 'Doppio Passo Primitivo', sub: '0,2 l', price: '6,50 €' },
+    { name: 'Doppio Passo Primitivo', sub: '0,75 l', price: '20,90 €' },
+    { name: 'Grand Sud Merlot trocken', sub: '0,2 l', price: '5,50 €' },
+    { name: 'Grand Sud Rosé', sub: '0,2 l', price: '5,50 €' },
+    { name: 'Prosecco Hausmarke', sub: 'Glas 0,1 l', price: '5,00 €' },
+    { name: 'Prosecco Hausmarke', sub: 'Flasche 0,75 l', price: '18,90 €' },
+    { name: 'Aperol Spritz', price: '6,90 €' },
+    { name: 'Aperol Spritz alkoholfrei', price: '5,90 €' },
+    { name: 'Sarti Spritz', price: '6,90 €' },
+    { name: 'Lillet Wild Berry', price: '6,90 €' }
+  ],
+  longdrinks: [
+    { name: 'Bacardi Cola', sub: 'normal / groß', price: '3,50 € / 6,50 €' },
+    { name: 'Havanna Cola', sub: 'normal / groß', price: '3,50 € / 6,50 €' },
+    { name: 'Jim Beam Cola', sub: 'normal / groß', price: '3,50 € / 6,50 €' },
+    { name: 'Jack Daniels Cola', sub: 'normal / groß', price: '4,00 € / 7,50 €' },
+    { name: 'Metaxa 5★ Cola', sub: 'normal / groß', price: '3,50 € / 6,50 €' },
+    { name: 'Vodka Energy', sub: 'normal / groß', price: '4,50 € / 7,00 €' },
+    { name: 'Vodka Lemon', sub: 'normal / groß', price: '3,50 € / 6,00 €' },
+    { name: 'Licor 43er Milch', price: '6,00 €' },
+    { name: 'Gin & Tonic Hausmarke', price: '6,90 €' }
+  ],
+  cocktails: [
+    { name: 'Caipirinha', price: '7,90 €' },
+    { name: 'Tequila Sunrise', price: '7,90 €' },
+    { name: 'Sex on the Beach', sub: 'mit Ananas', price: '7,90 €' },
+    { name: 'Mojito', price: '7,90 €' },
+    { name: 'Mai Tai', price: '8,90 €' },
+    { name: 'Long Island Iced Tea', price: '10,90 €' },
+    { name: 'Cuba Libre', price: '7,00 €' }
+  ],
+  alkfrei: [
+    { name: 'Ipanema', price: '5,90 €' },
+    { name: 'Moskito (Virgin Mojito)', price: '5,90 €' },
+    { name: 'Virgin Sunrise', price: '5,90 €' }
+  ],
+  spirituosen: [
+    { name: 'Metaxa 5★', price: '3,00 €' },
+    { name: 'Metaxa 7★', price: '4,00 €' },
+    { name: 'Ouzo Pilava', price: '2,00 €' },
+    { name: 'Tequila Silver Sierra', price: '2,50 €' },
+    { name: 'Vodka ThreeSixty', price: '2,50 €' },
+    { name: 'Havana 3 Años', price: '2,50 €' },
+    { name: 'Alte Marille', price: '3,00 €' },
+    { name: 'Korn', price: '2,00 €' },
+    { name: 'Baileys', price: '3,00 €' },
+    { name: 'Sambuca', price: '2,50 €' },
+    { name: 'Vodka', price: '3,00 €' },
+    { name: 'Klopfer', price: '2,00 €' },
+    { name: 'Kümmerling', price: '2,00 €' },
+    { name: 'Ramazzotti', price: '2,50 €' },
+    { name: 'Jägermeister', price: '2,50 €' },
+    { name: 'Averna', price: '2,00 €' },
+    { name: 'Sangrita Picante', price: '2,00 €' },
+    { name: 'Iris (Maracuja-Schnaps)', price: '2,00 €' },
+    { name: 'Kirsch-Ouzo (Theos)', price: '2,00 €' },
+    { name: 'Licor 43 Schuss Milch', price: '3,50 €' },
+    { name: 'Helbing', price: '2,50 €' },
+    { name: 'Fireball', price: '2,50 €' }
+  ]
+};
+
+/* =========================================================
+   SPEISEN-DATEN
+   ========================================================= */
+
+const DISHES = {
+  ankommen: [
+    { name: 'Brot mit Dip', allergens: ['A','G'], ingredients: ['Hausgebackenes Brot','Aioli'], price: '3,90 €' },
+    { name: 'Pimientos de Padrón', allergens: [], ingredients: ['gebraten','Meersalz','Olivenöl'], price: '7,90 €', vegetarian: true },
+    { name: 'Nachos mit Käse überbacken', allergens: ['A','G'], ingredients: ['Tortilla-Chips','geschmolzener Käse','Jalapeños','Sauerrahm','Salsa'], price: '7,90 €', vegetarian: true, spicy: true },
+    { name: 'Gebackener Feta', allergens: ['A','G','C'], ingredients: ['Honig','Sesam','Walnüsse','Brot'], price: '11,90 €', vegetarian: true }
+  ],
+  salate: [
+    { name: 'Gemischter Salat der Saison', allergens: ['G'], ingredients: ['Saisonale Blattsalate','Gurke','Tomate','Hausdressing'], price: '8,90 €', vegetarian: true },
+    { name: 'Bauernsalat', allergens: ['G'], ingredients: ['Tomate','Gurke','Paprika','Zwiebel','Oliven','Feta','Olivenöl-Oregano-Dressing'], price: '12,90 €', vegetarian: true },
+    { name: 'Falafelsalat', allergens: ['A','F','G','N'], ingredients: ['Gemischter Blattsalat','knusprige Falafel-Bällchen','Tomate','Gurke','rote Zwiebel','Sesam','Joghurt-Minz-Dressing'], price: '13,90 €', vegetarian: true },
+    { name: 'Caesar Salat', allergens: ['A','C','D','G','M'], ingredients: ['Romana','Caesar-Dressing','Croûtons','Parmesan','gegrillte Hähnchenbruststreifen'], price: '14,90 €' }
+  ],
+  schnitzel: [
+    { name: 'Wiener Art', allergens: ['A','C','G'], ingredients: ['paniertes Schweineschnitzel','Pommes frites','Zitrone','Beilagensalat'], price: '12,90 €' },
+    { name: 'Champignonrahm', allergens: ['A','C','G','L'], ingredients: ['paniert','Champignon-Rahmsauce','Pommes frites'], price: '14,90 €' },
+    { name: 'Paprikasauce', allergens: ['A','C','G','L'], ingredients: ['paniert','Paprikasauce','Pommes frites'], price: '14,90 €' },
+    { name: 'Hollandaise', allergens: ['A','C','G'], ingredients: ['paniert','Sauce Hollandaise','Pommes frites'], price: '14,90 €' },
+    { name: 'Sambal á la Hollandaise', allergens: ['A','C','G'], ingredients: ['paniert','scharfe Sambal-Hollandaise','Pommes frites'], price: '15,90 €', spicy: true },
+    { name: 'Zwiebelking', allergens: ['A','C','G'], ingredients: ['paniert','gebratene Zwiebeln on top','Pommes frites'], price: '15,90 €' },
+    { name: 'Krüstchen', allergens: ['A','C','G'], ingredients: ['paniert','Bauernschinken','Käse überbacken','Spiegelei','Pommes frites'], price: '16,90 €' }
+  ],
+  burger: [
+    { name: 'Hamburger', allergens: ['A','C','G','M'], ingredients: ['Rinderhack','Briochebun','Tomate','Salat','Zwiebel','Burgersauce','Pommes frites'], price: '10,90 €' },
+    { name: 'Cheeseburger', allergens: ['A','C','G','M'], ingredients: ['Rinderhack','Briochebun','Cheddar','Tomate','Salat','Zwiebel','Burgersauce','Pommes frites'], price: '12,90 €' },
+    { name: 'Bifteki Burger', allergens: ['A','C','G'], ingredients: ['Bifteki-Patty','Briochebun','Feta','Tomate','Salat','Tzatziki','Pommes frites'], price: '14,90 €' },
+    { name: 'Felsenmeer Burger', allergens: ['A','C','G','M'], ingredients: ['Rinderhack','Briochebun','Bacon','Cheddar','gebratene Zwiebeln','BBQ-Sauce','Tomate','Salat','Pommes frites'], price: '15,90 €' },
+    { name: 'Bacon Burger', allergens: ['A','C','G','M'], ingredients: ['Rinderhack','Briochebun','Bacon','Cheddar','Tomate','Salat','Burgersauce','Pommes frites'], price: '15,90 €' },
+    { name: 'Sambal á la Hollandaise Burger', allergens: ['A','C','G'], ingredients: ['Rinderhack','Briochebun','scharfe Sambal-Hollandaise','Tomate','Salat','Zwiebel','Pommes frites'], price: '15,90 €', spicy: true },
+    { name: 'Chili Cheese Nugget Burger', allergens: ['A','C','G','M'], ingredients: ['Rinderhack','Briochebun','Chili Cheese Nuggets','Cheddar','Tomate','Salat','Burgersauce','Pommes frites'], price: '15,90 €', spicy: true }
+  ],
+  flammkuchen: [
+    { name: 'Elsässer Art', allergens: ['A','G'], ingredients: ['Crème fraîche','Speck','Zwiebeln'], price: '11,90 €' },
+    { name: 'Griechischer Art', allergens: ['A','G'], ingredients: ['Crème fraîche','Feta','Tomate','Oliven','Zwiebel','Oregano'], price: '12,90 €', vegetarian: true },
+    { name: 'Vegetarisch', allergens: ['A','G'], ingredients: ['Sour Cream','Paprika','Tomate','rote Zwiebeln','Käse','Sonnenblumenkerne'], price: '13,90 €', vegetarian: true },
+    { name: 'Hähnchen', allergens: ['A','G'], ingredients: ['Crème fraîche','gegrillte Hähnchenbrust','Paprika','Zwiebel'], price: '15,90 €' },
+    { name: 'Lachs', allergens: ['A','D','G'], ingredients: ['Crème fraîche','Räucherlachs','rote Zwiebel','Dill'], price: '15,90 €' }
+  ],
+  specials: [
+    { name: 'Bifteki', allergens: ['A','C','G'], ingredients: ['Hausgemacht aus 100 % Rind (Halal)','gefüllt mit Feta','Salatgarnitur','Tzatziki'], price: '13,90 €' },
+    { name: 'Hähnchen-Spieße', allergens: ['G','M'], ingredients: ['2 Stück hausgemachte Hähnchenspieße (Halal)','Salatgarnitur','Tzatziki'], price: '12,90 €' },
+    { name: 'Ribs Lucky Glaze', allergens: ['A','F','M'], ingredients: ['Zart gegarte Rippchen','karamellisierte süß-würzige Whiskey-Glasur','im 1877er Stil','Portion Coleslaw'], price: '19,90 €' }
+  ],
+  klassiker: [
+    { name: 'Bratkartoffeln mit Spiegeleier', allergens: ['A','C','G'], ingredients: ['Speck','Zwiebel','zwei Spiegeleier','Beilagensalat'], price: '12,90 €' },
+    { name: 'Frikadelle', allergens: ['A','C','G','M'], ingredients: ['hausgemachte Frikadelle mit Senf'], price: '3,90 €' },
+    { name: 'Frikadelle Spezial', allergens: ['A','C','G','M'], ingredients: ['hausgemachte Frikadelle','Salsa','Käse überbacken'], price: '5,90 €' },
+    { name: 'Currywurst', allergens: ['A','M'], ingredients: ['gebratene Bratwurst','Currysoße','Pommes frites','Mayo'], price: '9,90 €' }
+  ],
+  ofenkartoffel: [
+    { name: 'Ofenkartoffel', allergens: ['G'], ingredients: ['Wählen Sie aktiv: mit oder ohne Kräuterbutter','Toppings beliebig kombinierbar'], price: '6,90 €', vegetarian: true }
+  ],
+  beilagen: [
+    { name: 'Pommes', allergens: [], ingredients: ['klassisch','Beilage'], price: '3,90 €', vegetarian: true },
+    { name: 'Bratkartoffeln Mettgenpin', allergens: ['G'], ingredients: ['Speck','Zwiebel'], price: '4,90 €' },
+    { name: 'Beilagensalat', allergens: ['G'], ingredients: ['gemischter Salat','Hausdressing'], price: '3,50 €', vegetarian: true }
+  ],
+  desserts: [
+    { name: 'Schokoladen-Brownie', allergens: ['A','C','G','H'], ingredients: ['warm','Vanille-Eis','Schokosauce'], price: '4,90 €', vegetarian: true },
+    { name: 'Schokoladen-Soufflé', allergens: ['A','C','G'], ingredients: ['flüssiger Kern','Vanille-Eis'], price: '4,90 €', vegetarian: true },
+    { name: 'Lotus Cheesecake', allergens: ['A','C','G'], ingredients: ['cremiger Käsekuchen','Lotus-Karamell'], price: '4,50 €', vegetarian: true },
+    { name: 'Vanille-Eis', allergens: ['G'], ingredients: ['1 Kugel'], price: '1,60 €', vegetarian: true },
+    { name: 'Schokoladen-Eis', allergens: ['G'], ingredients: ['1 Kugel'], price: '1,60 €', vegetarian: true }
+  ]
+};
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+const CHILI_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 4c-1 3-3 4-6 4-4 0-6 2-8 5-1 2-2 4-2 6 0 1 1 1 2 1 3 0 6-1 9-4 3-2 5-5 6-9 0-2 0-3-1-3z"/></svg>';
+
+function renderDrink(d) {
+  const sub = d.sub ? `<small>${d.sub}</small>` : '';
+  return `<li><span class="drink-name">${d.name}${sub}</span><span class="drink-price">${d.price}</span></li>`;
+}
+
+Object.keys(DRINKS).forEach(key => {
+  const list = document.getElementById('list-' + key);
+  if (list) {
+    list.innerHTML = DRINKS[key].map(renderDrink).join('');
+  }
+});
+
+function renderDish(d, key, idx) {
+  const allergenStr = d.allergens.length ? '(' + d.allergens.join(', ') + ')' : '(—)';
+  const vegMark = d.vegetarian ? '<span class="veg-mark" title="vegetarisch">v</span>' : '';
+  const spicyMark = d.spicy ? `<span class="spicy-mark" title="scharf" aria-label="scharf">${CHILI_SVG}</span>` : '';
+  const ingredients = d.ingredients.join(' | ');
+
+  return `
+    <article class="dish" tabindex="0" role="button" data-key="${key}" data-idx="${idx}" aria-label="Details zu ${d.name}">
+      <div class="dish-head">
+        <div>
+          <h3 class="dish-name">${d.name}<span class="allergens">${allergenStr}</span>${vegMark}${spicyMark}</h3>
+        </div>
+        <div class="price">${d.price}</div>
+      </div>
+      <div class="ingredients">${ingredients}</div>
+    </article>
+  `;
+}
+
+Object.keys(DISHES).forEach(key => {
+  const grid = document.getElementById('grid-' + key);
+  if (grid) {
+    grid.innerHTML = DISHES[key].map((d, i) => renderDish(d, key, i)).join('');
+  }
+});
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+const modal = document.getElementById('modal');
+const modalClose = document.getElementById('modal-close');
+const modalTitle = document.getElementById('modal-title');
+const modalIngredients = document.getElementById('modal-ingredients');
+const modalAllergens = document.getElementById('modal-allergens');
+const modalPrice = document.getElementById('modal-price');
+
+let lastFocused = null;
+
+function openModal(key, idx, triggerEl) {
+  const d = DISHES[key][idx];
+  if (!d) return;
+
+  lastFocused = triggerEl;
+
+  modalTitle.textContent = d.name;
+  modalIngredients.textContent = d.ingredients.join(' | ');
+
+  if (d.allergens.length) {
+    const list = d.allergens.map(a => `${ALLERGEN_NAMES[a]} (${a})`).join(', ');
+    modalAllergens.textContent = 'Enthält: ' + list;
+  } else {
+    modalAllergens.textContent = 'Keine kennzeichnungspflichtigen Allergene.';
+  }
+
+  modalPrice.textContent = d.price;
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  modalClose.focus();
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (lastFocused) lastFocused.focus();
+}
+
+document.addEventListener('click', (e) => {
+  const dish = e.target.closest('article.dish');
+  if (dish) {
+    openModal(dish.dataset.key, parseInt(dish.dataset.idx, 10), dish);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    const dish = document.activeElement?.closest?.('article.dish');
+    if (dish && document.activeElement === dish) {
+      e.preventDefault();
+      openModal(dish.dataset.key, parseInt(dish.dataset.idx, 10), dish);
+    }
+  }
+  if (e.key === 'Escape' && modal.classList.contains('open')) {
+    closeModal();
+  }
+});
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+
+/* =========================================================
+   STICKY NAV
+   ========================================================= */
+
+const navLinks = document.querySelectorAll('nav.section-nav a');
+const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+
+</script>
+</body>
+</html>
