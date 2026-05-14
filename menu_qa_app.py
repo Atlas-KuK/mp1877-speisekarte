@@ -273,20 +273,25 @@ if __name__ == '__main__':
     # Create templates directory if it doesn't exist
     os.makedirs('templates', exist_ok=True)
 
-    # Get host from environment or default to localhost
-    # Use '0.0.0.0' to allow access from other devices (handy, other computers)
+    # Get host and port from environment
+    # For Railway/Render: they set PORT env var automatically
+    # For local development: use defaults
+    is_production = os.getenv('FLASK_ENV') == 'production'
     host = os.getenv('FLASK_HOST', '0.0.0.0')
-    port = int(os.getenv('FLASK_PORT', 5000))
+    port = int(os.getenv('PORT', os.getenv('FLASK_PORT', 5000)))
 
-    import socket
-    hostname = socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
+    if not is_production:
+        import socket
+        try:
+            hostname = socket.gethostname()
+            local_ip = socket.gethostbyname(hostname)
+            print(f"\n{'='*60}")
+            print(f"🍽️  Speisekarten QA Tool startet...")
+            print(f"{'='*60}")
+            print(f"🌐 Lokal (dieser Computer): http://localhost:{port}")
+            print(f"📱 Handy/anderes Gerät:      http://{local_ip}:{port}")
+            print(f"{'='*60}\n")
+        except:
+            pass
 
-    print(f"\n{'='*60}")
-    print(f"🍽️  Speisekarten QA Tool startet...")
-    print(f"{'='*60}")
-    print(f"🌐 Lokal (dieser Computer): http://localhost:{port}")
-    print(f"📱 Handy/anderes Gerät:      http://{local_ip}:{port}")
-    print(f"{'='*60}\n")
-
-    app.run(debug=True, host=host, port=port)
+    app.run(debug=not is_production, host=host, port=port)
