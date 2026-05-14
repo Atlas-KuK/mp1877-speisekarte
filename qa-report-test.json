@@ -1,0 +1,86 @@
+{
+  "filename": "saisonkarte-spargel.pdf",
+  "ocr_text_sample": "\nMettgenpin 1877\nSpargелkarte\n\nGrüner & weißer Spargel mit Erdbeeren und Burrata\nGrüner & weißer Spargel mit kirschhen Vinaigrette, geroestem Sesam und nativem Olivenöl aus\nGriechenland\n\n19,90 €\n\nSpargel mit Kochschinken\nSpargel mit Kochschinken und Sauce Hollandaise. Dazu werden Pellkartofeln\nserviert\n\n15,90 €\n\nSpargel-Creme-Suppe\nHausgemachte Spargel-Cremessuppe mit Petersiele verferent.\n\n6,90 €\n\nSchnitzel mit Spargel Hollandaise\nHausgemachtes Schnitzel mit Spargel und Sauce Hollandaise Toppin",
+  "spelling": {
+    "spelling_errors": 9,
+    "issues": [
+      {
+        "word": "Spargелkarte",
+        "suggestion": "Spargелkarte (looks like Latin el instead of e)",
+        "severity": "warning"
+      },
+      {
+        "word": "kirschhen",
+        "suggestion": "kirschhen → Kirschenessig (double h, wrong word)",
+        "severity": "error"
+      },
+      {
+        "word": "geroestem",
+        "suggestion": "geroestem → geröstem (should be ö not oe)",
+        "severity": "error"
+      },
+      {
+        "word": "nativem",
+        "suggestion": "nativem Olivenöl (spacing ok but context check)",
+        "severity": "warning"
+      },
+      {
+        "word": "Cremessuppe",
+        "suggestion": "Cremessuppe → Cremesuppe (double s, should be single)",
+        "severity": "error"
+      },
+      {
+        "word": "Petersiele",
+        "suggestion": "Petersiele → Petersilie (wrong spelling)",
+        "severity": "error"
+      },
+      {
+        "word": "safter",
+        "suggestion": "safter → süßer (wrong word)",
+        "severity": "error"
+      },
+      {
+        "word": "Karamell",
+        "suggestion": "Karamell (correct: Karamel - one l)",
+        "severity": "warning"
+      },
+      {
+        "word": "Schokoladensouce",
+        "suggestion": "Schokoladensouce → Schokoladensauce (typo)",
+        "severity": "error"
+      }
+    ]
+  },
+  "formatting": {
+    "total_prices": 5,
+    "price_formats": [
+      "19,90 €",
+      "22,90 €",
+      "6,90 €",
+      "15,90 €",
+      "4,90 €"
+    ],
+    "prices": [
+      "19,90 €",
+      "15,90 €",
+      "6,90 €",
+      "22,90 €",
+      "4,90 €"
+    ],
+    "issues": [
+      "⚠️ Doppelte Leerzeichen gefunden"
+    ],
+    "line_count": 21,
+    "avg_line_length": 30.238095238095237
+  },
+  "consistency": {
+    "issues": [],
+    "recommendation": "Standardize spacing: use \"X,XX €\" consistently (space before €)"
+  },
+  "summary": {
+    "total_errors": 9,
+    "formatting_issues": 1,
+    "consistency_issues": 0,
+    "overall_quality": "NEEDS REVIEW"
+  }
+}
