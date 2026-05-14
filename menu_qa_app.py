@@ -272,4 +272,21 @@ def status():
 if __name__ == '__main__':
     # Create templates directory if it doesn't exist
     os.makedirs('templates', exist_ok=True)
-    app.run(debug=True, port=5000)
+
+    # Get host from environment or default to localhost
+    # Use '0.0.0.0' to allow access from other devices (handy, other computers)
+    host = os.getenv('FLASK_HOST', '0.0.0.0')
+    port = int(os.getenv('FLASK_PORT', 5000))
+
+    import socket
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+
+    print(f"\n{'='*60}")
+    print(f"🍽️  Speisekarten QA Tool startet...")
+    print(f"{'='*60}")
+    print(f"🌐 Lokal (dieser Computer): http://localhost:{port}")
+    print(f"📱 Handy/anderes Gerät:      http://{local_ip}:{port}")
+    print(f"{'='*60}\n")
+
+    app.run(debug=True, host=host, port=port)
